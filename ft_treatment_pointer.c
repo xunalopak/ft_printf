@@ -29,7 +29,7 @@ char *rtn, int count)
 
 char	*ft_ull_base(unsigned long long ull, int base)
 {
-	char 				*dest;
+	char				*dest;
 	unsigned long long	ullsave;
 	size_t				i;
 
@@ -37,7 +37,6 @@ char	*ft_ull_base(unsigned long long ull, int base)
 	ullsave = ull;
 	if (!ull)
 		return (ft_strdup("0"));
-
 	while (ull)
 	{
 		ull /= base;
@@ -45,7 +44,7 @@ char	*ft_ull_base(unsigned long long ull, int base)
 	}
 	dest = malloc(sizeof(char) * (i + 1));
 	if (!dest)
-		return(0);
+		return (0);
 	dest[i] = '\0';
 	dest = treat_base(ullsave, base, dest, i);
 	return (dest);

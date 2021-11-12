@@ -16,13 +16,15 @@
 # include <unistd.h> 
 # include <stdio.h>
 # include <stdarg.h>
+# include <stdlib.h>
 
 size_t	ft_strlen(const char *s);
-void	ft_putchar(const char s);
-void	ft_putstr(const char *s);
+int		ft_putchar(const char s);
+int		ft_putstr(const char *s);
 char	*ft_strdup(const char *s);
 int		ft_treatment_char(char c);
 int		ft_treatment_str(char *s);
+int		ft_treatment_int(int n);
 int		ft_treatment_pointer(unsigned long long ull);
 char	*ft_ull_base(unsigned long long ull, int base);
 
