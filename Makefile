@@ -10,29 +10,42 @@
 #                                                                              #
 # **************************************************************************** #
 
-SRC = 
-
-OBJ = $(SRC:.c=.o)
-
 NAME = libftprintf.a
 
-FLAGS = -Werror -Wall -Wextra -o -I./include
+SRC = ft_printf.c \
+        ft_strdup.c\
+        ft_str.c \
+        ft_treatment_char.c\
+        ft_treatment_int\
+        ft_treatment_pointer\
+        ft_treatment_str\
+        ft_treatment_uint\
+        ft_treatment_x\
 
-GCC = gcc
 
-$(NAME): $(OBJ)
-		$(GCC) $(NAME) $(OBJ)
+CC = gcc
 
-all: $(NAME)
+FLAGS = -c -Wall -Wextra -Werror
 
-clean:
-        rm -f $(OBJ)
+INCLUDES = -I./includes
 
-fclean: clean
-        rm -f $(NAME)
+OBJS = $(SRCS:.c=.o)
 
-re:     fclean all
+$(NAME): $(OBJS)
+	$(NAME)
+	$(CC) $(FLAGS) $(INCLUDES) $(SRC)
+	ar -rcs $(NAME) $(OBJS)
 
-bonus: all
+all : $(NAME)
 
-.PHONY: all clean fclean re bonus
+clean :
+	rm -rf $(OBJS)
+
+fclean : clean
+	rm -rf $(NAME)
+
+re : fclean all
+
+bonus : all
+
+.PHONY : all clean fclean re bonus
