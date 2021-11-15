@@ -71,12 +71,3 @@ int	ft_printf(const char *s, ...)
 	free(save);
 	return (done);
 }
-
-int	main(void)
-{
-	int n;
-	n = printf("%X\n", -1);
-	ft_printf("%d \n", n);
-	n = ft_printf("%X\n", -1, n);
-	ft_printf("%d\n", n);
-}
