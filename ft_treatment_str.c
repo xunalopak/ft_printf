@@ -17,6 +17,9 @@ int	ft_treatment_str(char *s)
 	int	done;
 
 	done = 0;
-	done += ft_putstr(s);
+	if (!s)
+		done += ft_putstr("(null)");
+	else
+		done += ft_putstr(s);
 	return (done);
 }

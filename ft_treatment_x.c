@@ -27,7 +27,7 @@ char *rtn, int count)
 	return (rtn);
 }
 
-char	*ft_n_base(int n, int base)
+static char	*ft_n_base(int n, int base)
 {
 	char	*dest;
 	int		nsave;
@@ -62,4 +62,3 @@ int	ft_treatment_x(int n)
 	free(pointer);
 	return (done);
 }
-

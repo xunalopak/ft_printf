@@ -57,10 +57,13 @@ static char	*ft_itoa(int n)
 
 int	ft_treatment_int(int n)
 {
-	int	done;
+	int		done;
+	char	*nsave;
 
 	done = 0;
 	done = ft_nb_len(n);
-	ft_putstr(ft_itoa(n));
+	nsave = ft_itoa(n);
+	ft_putstr(nsave);
+	free(nsave);
 	return (done);
 }

@@ -56,11 +56,6 @@ int	ft_treatment_pointer(unsigned long long ull)
 	int		done;
 
 	done = 0;
-	if (!ull)
-	{
-		ft_putstr("0x");
-		return (done += 2);
-	}
 	ft_putstr("0x");
 	pointer = ft_ull_base(ull, 16);
 	done += ft_strlen(pointer);

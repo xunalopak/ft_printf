@@ -29,6 +29,8 @@ int	ft_treat(char s, va_list arg)
 		done += ft_treatment_uint(va_arg(arg, unsigned int));
 	else if (s == 'x')
 		done += ft_treatment_x(va_arg(arg, int));
+	else if (s == 'X')
+		done += ft_treatment_xm(va_arg(arg, int));
 	else if (s == '%')
 		done += ft_putchar('%');
 	return (done);
@@ -69,3 +71,10 @@ int	ft_printf(const char *s, ...)
 	free(save);
 	return (done);
 }
+
+// int	main(void)
+// {
+// 	int n;
+// 	n += printf("%x %d\n", -1, n);
+// 	n = ft_printf("%x %d\n", -1, n);
+// }
