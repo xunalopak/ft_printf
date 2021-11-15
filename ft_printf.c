@@ -28,9 +28,9 @@ int	ft_treat(char s, va_list arg)
 	else if (s == 'u')
 		done += ft_treatment_uint(va_arg(arg, unsigned int));
 	else if (s == 'x')
-		done += ft_treatment_x(va_arg(arg, int));
+		done += ft_treatment_x(va_arg(arg, unsigned int), 1);
 	else if (s == 'X')
-		done += ft_treatment_xm(va_arg(arg, int));
+		done += ft_treatment_x(va_arg(arg, unsigned int), 0);
 	else if (s == '%')
 		done += ft_putchar('%');
 	return (done);
@@ -72,9 +72,11 @@ int	ft_printf(const char *s, ...)
 	return (done);
 }
 
-// int	main(void)
-// {
-// 	int n;
-// 	n += printf("%x %d\n", -1, n);
-// 	n = ft_printf("%x %d\n", -1, n);
-// }
+int	main(void)
+{
+	int n;
+	n = printf("%X\n", -1);
+	ft_printf("%d \n", n);
+	n = ft_printf("%X\n", -1, n);
+	ft_printf("%d\n", n);
+}

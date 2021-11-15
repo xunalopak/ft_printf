@@ -21,7 +21,6 @@ SRCS = ft_printf.c \
         ft_treatment_str.c\
         ft_treatment_uint.c\
         ft_treatment_x.c\
-		ft_treatment_xm.c\
 
 
 CC = gcc

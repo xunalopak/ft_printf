@@ -29,6 +29,5 @@ int		ft_treatment_int(int n);
 int		ft_treatment_uint(unsigned int n);
 int		ft_treatment_pointer(unsigned long long ull);
 char	*ft_ull_base(unsigned long long ull, int base);
-int		ft_treatment_x(int n);
-int		ft_treatment_xm(int n);
+int		ft_treatment_x(unsigned int n, int b);
 #endif
