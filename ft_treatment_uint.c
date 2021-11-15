@@ -1,18 +1,18 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_treatment_int.c                                 :+:      :+:    :+:   */
+/*   ft_treatment_uint.c                                :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: rchampli <rchampli@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/11/12 14:49:14 by rchampli          #+#    #+#             */
-/*   Updated: 2021/11/12 14:49:14 by rchampli         ###   ########.fr       */
+/*   Created: 2021/11/13 19:18:08 by rchampli          #+#    #+#             */
+/*   Updated: 2021/11/13 19:18:08 by rchampli         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
 
-static size_t	ft_nb_len(int nb)
+static size_t	ft_nb_len(unsigned int nb)
 {
 	int	len;
 
@@ -27,7 +27,7 @@ static size_t	ft_nb_len(int nb)
 	return (len);
 }
 
-static char	*ft_itoa(int n)
+static char	*ft_u_itoa(unsigned int n)
 {
 	int		len;
 	char	*str;
@@ -35,7 +35,7 @@ static char	*ft_itoa(int n)
 
 	len = ft_nb_len(n);
 	nb = n;
-	str = malloc(sizeof(char) * len + 1);
+	str = malloc(sizeof(char) * (len + 1));
 	if (!str)
 		return (NULL);
 	if (nb < 0)
@@ -55,12 +55,15 @@ static char	*ft_itoa(int n)
 	return (str);
 }
 
-int	ft_treatment_int(int n)
+int	ft_treatment_uint(unsigned int n)
 {
-	int	done;
+	int		done;
+	char	*nsave;
 
 	done = 0;
 	done = ft_nb_len(n);
-	ft_putstr(ft_itoa(n));
+	nsave = ft_u_itoa(n);
+	ft_putstr(nsave);
+	free(nsave);
 	return (done);
 }

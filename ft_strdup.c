@@ -12,20 +12,23 @@
 
 #include "ft_printf.h"
 
-char	*ft_strdup(const char *s)
+char
+	*ft_strdup(const char *s1)
 {
-	unsigned int	i;
-	unsigned char	*dest;
+	char	*str;
+	size_t	i;
 
+	if (!s1)
+		return (NULL);
+	str = (char*)malloc(sizeof(*s1) * (ft_strlen(s1) + 1));
+	if (!str)
+		return (NULL);
 	i = 0;
-	dest = malloc(sizeof(char) * ft_strlen(s));
-	if (!dest)
-		return (0);
-	while (s[i])
+	while (s1[i])
 	{
-		dest[i] = s[i];
+		str[i] = s1[i];
 		i++;
 	}
-	dest[i] = '\0';
-	return (dest);
+	str[i] = 0;
+	return (str);
 }

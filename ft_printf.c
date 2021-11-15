@@ -26,9 +26,9 @@ int	ft_treat(char s, va_list arg)
 	else if (s == 'd' || s == 'i')
 		done += ft_treatment_int(va_arg(arg, int));
 	else if (s == 'u')
-		va_arg(arg, unsigned int);
+		done += ft_treatment_uint(va_arg(arg, unsigned int));
 	else if (s == 'x')
-		va_arg(arg, unsigned int);
+		done += ft_treatment_x(va_arg(arg, int));
 	else if (s == '%')
 		done += ft_putchar('%');
 	return (done);
@@ -66,18 +66,6 @@ int	ft_printf(const char *s, ...)
 	va_start(arg, s);
 	done += ft_treatment(arg, save);
 	va_end(arg);
+	free(save);
 	return (done);
-}
-
-int	main(void)
-{
-	int	d = 15;
-	char *num = "tgs";
-	char ok = 'o';
-	int	n;
-	n = ft_printf("Faux: bonjour ça marche %s %c %d\n", num, ok, d);
-	printf("%d\n", n);
-	n= printf("Vrai: bonjour ça marche %s %c %d\n", num, ok, d);
-	printf("%d\n", n);
-	return (0);
 }
